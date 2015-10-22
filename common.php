@@ -21,8 +21,18 @@ require(BB_ROOT . 'library/config.php');
 
 // Load Zend Framework
 use Zend\Loader\StandardAutoloader;
-require(BB_ROOT . 'library/Zend/Loader/StandardAutoloader.php');
-$loader = new StandardAutoloader(array('autoregister_zf' => true));
+
+$zfPath = BB_ROOT . 'library/';
+
+require($zfPath . 'Zend/Loader/StandardAutoloader.php');
+$loader = new StandardAutoloader(
+	array(
+		'autoregister_zf' => true,
+		'namespaces' => array(
+			'Tp' => $zfPath .'Tp',
+		),
+	)
+);
 $loader->register();
 
 // ZF use
