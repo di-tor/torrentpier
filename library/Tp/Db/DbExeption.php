@@ -45,7 +45,7 @@ class DbExeption {
 	}
 	
 	public function insertReplace() {
-		return new InsertReplace();
+		return new Replace();
 	}
 	
 	public function rowSet($q) {
@@ -68,7 +68,7 @@ class DbExeption {
 		
 	}
 	
-	private function result($q) {
+	public function result($q) {
 		$string = $this->_sql->prepareStatementForSqlObject($q);
 		
 		return $string->execute();	

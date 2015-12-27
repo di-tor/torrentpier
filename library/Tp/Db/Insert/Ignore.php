@@ -1,8 +1,10 @@
 <?php
 
+namespace Tp\Db\Insert;
+
 use Zend\Db\Sql\Insert;
 
-class InsertIgnore extends Insert
+class Ignore extends Insert
 {
     protected $specifications = [
         self::SPECIFICATION_INSERT => 'INSERT IGNORE INTO %1$s (%2$s) VALUES (%3$s)',

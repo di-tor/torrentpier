@@ -89,6 +89,24 @@ $bb_cfg['db'] = array(
 	//'db3' => array('localhost3', 'dbase3', 'user2', 'pass3', $charset, $pconnect),
 );
 
+$bb_cfg['connect'] = array(
+	'db1' => array(
+		'driver' => 'Pdo_Mysql',
+		'database' => '',
+		'username' => '',
+		'password' => '',
+		'hostname' => '127.0.0.1',
+		'charset' => $charset
+	),
+);
+
+$bb_cfg['cache_new'] = [
+	'host'    => '127.0.0.1',
+	'port'    => 11211,
+	'prefix'  => 'tpch_',
+	'adapter' => 'memcached',
+];
+
 $bb_cfg['db_alias'] = array(
 //	'alias'  => 'srv_name'
 #	db1
