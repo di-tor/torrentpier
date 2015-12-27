@@ -8,39 +8,39 @@ use Zend\Db\Sql\Expression;
 class Db {
 
 	public static function select($db = false) {
-		return DbExeption::run($db)->select();
+		return DbException::run($db)->select();
 	}
 	
 	public static function insert($db = false) {
-		return DbExeption::run($db)->insert();
+		return DbException::run($db)->insert();
 	}
 	
 	public static function update($db = false) {
-		return DbExeption::run($db)->update();
+		return DbException::run($db)->update();
 	}
 	
 	public static function delete($db = false) {
-		return DbExeption::run($db)->delete();
+		return DbException::run($db)->delete();
 	}
 	
 	public static function rowSet($q) {
-		return DbExeption::run()->rowSet($q);
+		return DbException::run()->rowSet($q);
 	}
 	
 	public static function row($q) {	
-		return DbExeption::run()->row($q);	
+		return DbException::run()->row($q);	
 	}
 	
 	public static function query($q, $db = false) {
-		return DbExeption::run($db)->query($q);
+		return DbException::run($db)->query($q);
 	}
 	
 	public static function execute($q) {
-		return DbExeption::run()->result($q);
+		return DbException::run()->result($q);
 	}
 
 	public static function insertReplace($db = false) {
-		return DbExeption::run($db)->insertReplace();
+		return DbException::run($db)->insertReplace();
 	}
 	
 	public static function Predicate() {

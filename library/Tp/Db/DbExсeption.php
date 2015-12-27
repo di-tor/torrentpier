@@ -7,7 +7,7 @@ use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Adapter\Adapter;
 use Tp\Db\Insert\Replace;
 
-class DbExeption {
+class DbException {
 
 	private $_database = null;
 	private $_adapter = null;

@@ -2,12 +2,13 @@
 
 namespace Tp\Cache\Adapter;
 
-class Memcached {
+class Redis {
 	
 	function config() {
 		return [
-			'servers' => [
-				['127.0.0.1', '11211']
+			'server' => [
+				'host' => '127.0.0.1',
+				'port' => '6379',
 			]
 		];
 	}

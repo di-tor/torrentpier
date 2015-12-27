@@ -7,43 +7,33 @@ class Cache {
 	static $_ttl = '3600';
 
 	private static function getClass($ttl = false) {
-		
-		if(!$ttl) $ttl = self::$_ttl;
-		
-		return new Exeption($ttl);
+		$ttl = ($ttl) ? $ttl : self::$_ttl;
+		$cache = new Factory($ttl);
+		return $cache->cache();
 	}
 	
 	public static function get($key) {
-
 		$class = self::getClass();
-	
-		return $class->cache()->getItem($key);
+		return $class->getItem($key);
 	}
 	
 	public static function set($key, $val, $ttl = false) {
 		$class = self::getClass($ttl);
-	
-		return $class->cache()->setItem($key, $val);
+		return $class->setItem($key, $val);
 	}
 	
-	public static function remove($key) {
-		
+	public static function remove($key) {	
 		$class = self::getClass();
-	
-		return $class->cache()->removeItem($key);
+		return $class->removeItem($key);
 	}
 	
-	public static function replace($key, $val, $ttl = false) {
-		
+	public static function replace($key, $val, $ttl = false) {	
 		$class = self::getClass($ttl);
-	
-		return $class->cache()->replaceItem($key, $val);
+		return $class->replaceItem($key, $val);
 	}
 	
 	public static function check($key) {
-		
 		$class = self::getClass();
-	
-		return $class->cache()->hasItem($key);
+		return $class->hasItem($key);
 	}
 }

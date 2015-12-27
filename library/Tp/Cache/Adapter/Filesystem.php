@@ -2,13 +2,11 @@
 
 namespace Tp\Cache\Adapter;
 
-class Memcached {
+class Filesystem {
 	
 	function config() {
 		return [
-			'servers' => [
-				['127.0.0.1', '11211']
-			]
+			'cache_dir' => CACHE_DIR,
 		];
 	}
 }
