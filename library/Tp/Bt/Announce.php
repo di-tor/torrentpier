@@ -104,7 +104,7 @@ class Announce
 		$this->releaser = (int) ($this->user_id == $row['poster_id']);
 		$this->tor_type = $row['tor_type'];
 		
-		$this->userRestrited();
+		$this->userRectrited();
 	}
 	
 	private function getUserInfo() {
@@ -121,7 +121,7 @@ class Announce
 		$this->user_id  = $row['user_id'];
 	}
 	
-	private function userRestrited() {
+	private function userRectrited() {
 		$row = Cache::get(self::U_PREFIX . $this->peer_hash);
 
 		// Ratio limits
