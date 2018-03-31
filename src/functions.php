@@ -9,6 +9,8 @@
 
 namespace TorrentPier;
 
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DriverManager;
 use TorrentPier\Configure\Config;
 use TorrentPier\Configure\Reader\ArrayFileReader;
 use TorrentPier\ServiceContainer as SC;
@@ -24,5 +26,25 @@ function config()
         return new Config([
             new ArrayFileReader(dirname(__DIR__) . '/library/config.php')
         ]);
+    });
+}
+
+/**
+ * Database Connection
+ *
+ * @return Connection
+ * @throws \Exception
+ */
+function db()
+{
+    return SC::get('db', function () {
+        try {
+            return DriverManager::getConnection(array_merge([
+                'driver' => 'pdo_mysql',
+                'charset' => 'utf8mb4'
+            ], config()->get('database')));
+        } catch (\Exception $exception) {
+            throw new \RuntimeException($exception->getMessage(), $exception->getCode(), $exception);
+        }
     });
 }

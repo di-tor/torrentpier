@@ -171,6 +171,11 @@ if ($bb_cfg['bugsnag']['enabled']) {
  */
 $DBS = new TorrentPier\Legacy\Dbs($bb_cfg);
 
+/**
+ * @param string $db_alias
+ * @return \TorrentPier\Legacy\SqlDb
+ * @deprecated use \TorrentPier\db()
+ */
 function DB($db_alias = 'db')
 {
     global $DBS;
