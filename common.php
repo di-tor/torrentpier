@@ -107,7 +107,7 @@ function value($value)
 if (!getenv('APP_DEBUG') && file_exists(__DIR__ . '/.env')) {
     (new Symfony\Component\Dotenv\Dotenv())->load(__DIR__ . '/.env');
 }
-require_once __DIR__ . '/library/config.php';
+require_once __DIR__ . '/library/old.config.php';
 
 // Local config
 if (file_exists(__DIR__ . '/library/config.local.php')) {
