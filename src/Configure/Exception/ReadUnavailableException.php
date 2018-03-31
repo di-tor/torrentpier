@@ -9,7 +9,12 @@
 
 namespace TorrentPier\Configure\Exception;
 
+use Throwable;
+
 class ReadUnavailableException extends \Exception
 {
-    protected $message = 'File can not read';
+    public function __construct($message = 'File can not read', $code = 0, Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

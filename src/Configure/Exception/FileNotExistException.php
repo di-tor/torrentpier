@@ -9,7 +9,12 @@
 
 namespace TorrentPier\Configure\Exception;
 
+use Throwable;
+
 class FileNotExistException extends \Exception
 {
-    protected $message = 'File not exist';
+    public function __construct($message = 'File not exist', $code = 0, Throwable $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }
