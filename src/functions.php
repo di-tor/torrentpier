@@ -9,8 +9,10 @@
 
 namespace TorrentPier;
 
-use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Connection as DBALConnection;
 use Doctrine\DBAL\DriverManager;
+use TorrentPier\Cache\CacheProviderManager;
+use TorrentPier\Cache\Connection as CacheConnection;
 use TorrentPier\Configure\Config;
 use TorrentPier\Configure\Reader\ArrayFileReader;
 use TorrentPier\ServiceContainer as SC;
@@ -32,7 +34,7 @@ function config()
 /**
  * Database Connection
  *
- * @return Connection
+ * @return DBALConnection
  * @throws \Exception
  */
 function db()
@@ -46,5 +48,17 @@ function db()
         } catch (\Exception $exception) {
             throw new \RuntimeException($exception->getMessage(), $exception->getCode(), $exception);
         }
+    });
+}
+
+/**
+ * Cache
+ *
+ * @return CacheConnection
+ */
+function cache()
+{
+    return SC::get('cache', function() {
+        return CacheProviderManager::getConnection(config()->get('cache'));
     });
 }

@@ -21,3 +21,19 @@ $config['database'] = [
     'user'     => env('DB_USERNAME'),
     'password' => env('DB_PASSWORD'),
 ];
+
+/**
+ * Cache setting
+ *
+ * Providers: apcu, array, chain, -couchbase, filesystem, memcache, memcached, mongodb,
+ *           phpfile, predis, redis, riak, sqlite3, void, wincache, xcache, zenddata.
+ *
+ * Current work: apcu, array, chain, filesystem, memcached, phpfile, redis, sqlite3, void.
+ * In dev: couchbase, memcache, mongodb, predis, riak, wincache, xcache, zenddata.
+ */
+$config['cache'] = [
+    'provider' => 'filesystem',
+    'options' => [
+        'directory' => dirname(__DIR__) . '/internal_data/cache',
+    ],
+];
