@@ -95,10 +95,6 @@ $bb_cfg['cache'] = [
     ],
 ];
 
-// Datastore
-// Available datastore types: memcache, sqlite, redis, apc, xcache  (default filecache)
-$bb_cfg['datastore_type'] = 'filecache';
-
 // Server
 $bb_cfg['server_name'] = $domain_name; // The domain name from which this board runs
 $bb_cfg['server_port'] = (!empty($_SERVER['SERVER_PORT'])) ? $_SERVER['SERVER_PORT'] : 80; // The port your server is running on
