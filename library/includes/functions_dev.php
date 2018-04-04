@@ -29,7 +29,7 @@ if (!defined('BB_ROOT')) {
 
 function get_sql_log()
 {
-    global $DBS, $CACHES, $datastore;
+    global $DBS, /*$CACHES,*/ $datastore;
 
     $log = '';
 
@@ -37,13 +37,13 @@ function get_sql_log()
         $log .= !empty($db_obj) ? get_sql_log_html($db_obj, "$srv_name [MySQL]") : '';
     }
 
-    foreach ($CACHES->obj as $cache_name => $cache_obj) {
+    /*foreach ($CACHES->obj as $cache_name => $cache_obj) {
         if (!empty($cache_obj->db)) {
             $log .= get_sql_log_html($cache_obj->db, "cache: $cache_name [{$cache_obj->db->engine}]");
         } elseif (!empty($cache_obj->engine)) {
             $log .= get_sql_log_html($cache_obj, "cache: $cache_name [{$cache_obj->engine}]");
         }
-    }
+    }*/
 
     if (!empty($datastore->db->dbg)) {
         $log .= get_sql_log_html($datastore->db, 'cache: datastore [' . $datastore->engine . ']');

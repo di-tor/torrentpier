@@ -34,6 +34,30 @@ class Connection implements CacheInterface
     }
 
     /**
+     * @return CacheProvider
+     */
+    public function getCacheProvider()
+    {
+        return $this->cacheProvider;
+    }
+
+    /**
+     * @param $namespace
+     */
+    public function setNamespace($namespace)
+    {
+        $this->cacheProvider->setNamespace($namespace);
+    }
+
+    /**
+     * @return string
+     */
+    public function getNamespace()
+    {
+        return $this->cacheProvider->getNamespace();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function get($key, $default = null)

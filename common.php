@@ -174,6 +174,7 @@ $DBS = new TorrentPier\Legacy\Dbs($bb_cfg);
 /**
  * @param string $db_alias
  * @return \TorrentPier\Legacy\SqlDb
+ *
  * @deprecated use \TorrentPier\db()
  */
 function DB($db_alias = 'db')
@@ -183,14 +184,14 @@ function DB($db_alias = 'db')
 }
 
 /**
- * Cache
+ * @return
+ * @deprecated Use \TorrentPier\cache()
  */
-$CACHES = new TorrentPier\Legacy\Caches($bb_cfg);
-
 function CACHE($cache_name)
 {
-    global $CACHES;
-    return $CACHES->get_cache_obj($cache_name);
+    $cache = \TorrentPier\cache();
+    $cache->setNamespace($cache_name);
+    return $cache;
 }
 
 /**
